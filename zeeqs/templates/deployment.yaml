@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "zeeqs.fullname" . }}
+  labels:
+    app: {{ include "zeeqs.fullname" . }}
+spec:
+  replicas: {{ .Values.global.replicas  }}
+  selector:
+    matchLabels:
+      app: {{ include "zeeqs.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "zeeqs.fullname" . }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        resources:
+          {{- toYaml .Values.resources | nindent 12 }}
+        env:
+          - name: SERVER_PORT
+            value: "{{ .Values.global.port }}"
+          - name: IO_ZEEBE_HAZELCAST_CONNECTION
+            value: {{ .Values.global.hazelcast }}
+        ports:
+        - containerPort: {{ .Values.global.port }}
+          name: http
+          protocol: TCP
+      securityContext:
+{{ toYaml .Values.podSecurityContext | indent 8 }}
