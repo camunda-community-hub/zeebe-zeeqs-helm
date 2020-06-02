@@ -22,7 +22,7 @@ spec:
         env:
           - name: SERVER_PORT
             value: "{{ .Values.global.port }}"
-          - name: IO_ZEEBE_HAZELCAST_CONNECTION
+          - name: ZEEBE_HAZELCAST_CONNECTION
           {{ if .Values.global.hazelcast }}
             value: {{ .Values.global.hazelcast }}
           {{ else }}
