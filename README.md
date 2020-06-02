@@ -23,15 +23,18 @@ This functionality is in beta and is subject to change. The design and code is l
 - Install it
 
   ```
-  helm install --name zeeqs zeebe/zeeqs --set global.hazelcast=<YOUR HAZELCAST CLUSTER NAME>
+  helm install --name zeeqs zeebe/zeeqs
   ```
 
 ## Configuration
 
-| Parameter          | Description                                                     | Default        |
-| ------------------ | --------------------------------------------------------------- | -------------- |
-| `global.hazelcast` | Hazelcast Cluster to connect ZeeQS to                           | hazelcast:5701 |
-| `global.hazelcast` | The port that the deployment is running on                      | 9000           |
-| `global.replicas`  | How many replicas                                               | 1              |
-| `service.type`     | What type of service to use (ClusterIP, LoadBalancer, NodePort) | ClusterIp      |
-| `service.port`     | The port exposed by the service                                 | 9000           |
+| Parameter           | Description                                                     | Default        |
+| ------------------- | --------------------------------------------------------------- | -------------- |
+| `global.hazelcast`  | Hazelcast Cluster to connect ZeeQS to                           | inactive       |
+| `global.port`       | The port that the deployment is running on                      | 9000           |
+| `global.replicas`   | How many replicas                                               | 1              |
+| `service.type`      | What type of service to use (ClusterIP, LoadBalancer, NodePort) | ClusterIP      |
+| `service.port`      | The port exposed by the service                                 | 9000           |
+| `hazelcast.enabled` | Set this to false if you want to provide your own hazelcast     | true           |
+|                     | connection                                                      |                |
+| ------------------  | --------------------------------------------------------------- | -------------- |
