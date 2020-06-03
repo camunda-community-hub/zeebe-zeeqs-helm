@@ -22,8 +22,12 @@ spec:
         env:
           - name: SERVER_PORT
             value: "{{ .Values.global.port }}"
-          - name: IO_ZEEBE_HAZELCAST_CONNECTION
+          - name: ZEEBE_HAZELCAST_CONNECTION
+          {{ if .Values.global.hazelcast }}
             value: {{ .Values.global.hazelcast }}
+          {{ else }}
+            value: {{ include "zeeqs.fullname" .}}-hazelcast:5701
+          {{ end }}
         ports:
         - containerPort: {{ .Values.global.port }}
           name: http

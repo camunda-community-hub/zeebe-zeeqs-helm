@@ -15,7 +15,7 @@
 
 - Docker Image used for ZeeQS: {{ .Values.image.repository }}:{{ .Values.image.tag }}
 
-If you don't have an Ingress Controller you can do kubectl port-forward to access Operate from outside the cluster:
+If you don't have an Ingress Controller you can do kubectl port-forward to access ZeeQS from outside the cluster:
 
 > kubectl port-forward svc/{{ include "zeeqs.fullname" . }} {{ .Values.service.port }}:{{ .Values.service.port }}
 
