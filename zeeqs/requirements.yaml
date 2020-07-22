@@ -1,5 +1,5 @@
 dependencies:
 - name: hazelcast
-  repository: https://hazelcast-charts.s3.amazonaws.com/
-  version: 4.0.1
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 3.3.2
   condition: "hazelcast.enabled"
