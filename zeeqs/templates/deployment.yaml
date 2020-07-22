@@ -26,7 +26,7 @@ spec:
           {{ if .Values.global.hazelcast }}
             value: {{ .Values.global.hazelcast }}
           {{ else }}
-            value: {{ include "zeeqs.fullname" .}}-hazelcast:5701
+            value: {{ .Release.Name }}-hazelcast:5701
           {{ end }}
         ports:
         - containerPort: {{ .Values.global.port }}
