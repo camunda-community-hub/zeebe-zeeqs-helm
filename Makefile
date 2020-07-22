@@ -10,7 +10,6 @@ init:
 
 setup: init
 	helm repo add jenkins-x http://chartmuseum.jenkins-x.io
-	helm repo add hazelcast https://hazelcast-charts.s3.amazonaws.com/
 	#helm repo add releases ${CHART_REPO}
 
 build: clean setup
