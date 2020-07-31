@@ -1,0 +1,115 @@
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1596198097.0941534,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-zeebe-io-zeebe-zeeqs-helm-maste-h5ngf-487ds[0m
+{"level":"info","ts":1596198105.2924414,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/zeebe-io/zeebe-zeeqs-helm.git @ v0.0.13 in path /workspace/source"}
+{"level":"warn","ts":1596198105.2947245,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1596198105.3358705,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:2ded1142b9aa66913c4c7dc1722204d4ab3658b5
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /tekton/home/git/credentials
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mstep-build-basic-auth-username[0m
+/tekton/home/basic-auth-user.json
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mstep-build-basic-auth-password[0m
+/tekton/home/basic-auth-pass.json
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mstep-build-release[0m
+rm -rf zeeqs/charts
+rm -rf zeeqs/zeeqs*.tgz
+rm -rf zeeqs/requirements.lock
+helm init --client-only
+Creating /tekton/home/.helm 
+Creating /tekton/home/.helm/repository 
+Creating /tekton/home/.helm/repository/cache 
+Creating /tekton/home/.helm/repository/local 
+Creating /tekton/home/.helm/plugins 
+Creating /tekton/home/.helm/starters 
+Creating /tekton/home/.helm/cache/archive 
+Creating /tekton/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /tekton/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+Happy Helming!
+helm repo add jenkins-x http://chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+#helm repo add releases http://jenkins-x-chartmuseum:8080
+helm dependency build zeeqs
+Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get http://127.0.0.1:8879/charts/index.yaml: dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "stable" chart repository
+...Successfully got an update from the "jenkins-x" chart repository
+Update Complete. ⎈Happy Helming!⎈
+Saving 1 charts
+Downloading hazelcast from repo https://kubernetes-charts.storage.googleapis.com/
+Deleting outdated charts
+helm lint zeeqs
+==> Linting zeeqs
+Lint OK
+
+1 chart(s) linted, no failures
+sed -i -e "s/version:.*/version: 0.0.13/" zeeqs/Chart.yaml
+helm package zeeqs
+Successfully packaged chart and saved it to: /workspace/source/zeeqs-0.0.13.tgz
+curl --fail -u *****:*********** --data-binary "@zeeqs-0.0.13.tgz" http://jenkins-x-chartmuseum:8080/api/charts
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{"saved":true}rm -rf zeeqs*.tgz
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 14296  100    14  100 14282    826   822k --:--:-- --:--:-- --:--:--  871k
+** step changelog  --verbose --version 0.0.13
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git rev-parse --is-shallow-repository
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch --unshallow
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch --tags
+Converted /workspace/source to an unshallow repository
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git for-each-ref --sort=-creatordate --format=%(objectname)%00%(refname:short) --count=2 refs/tags
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git rev-list -n 1 c0d79fab546a12ad02830bcdb6a83b919fed8c6c
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git for-each-ref --sort=-creatordate --format=%(objectname)%00%(refname:short) --count=1 refs/tags
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git rev-list -n 1 7d21e00e0600d20daec769b462018908fbb7e490
+DEBUG: Using helmBinary helm with feature flag: template-mode
+Generating change log from git ref 79f9caf3c20bd6bc00f2ad7f62043f4cd049da6b => b2d5e65b4663db41ce31ad7a632cebe2c879acd8
+DEBUG: Found commits:
+DEBUG:   commit 2ded1142b9aa66913c4c7dc1722204d4ab3658b5
+DEBUG:   Author: ******* <Salaboy@gmail.com>
+DEBUG:   Date: Fri Jul 31 13:20:59 2020
+DEBUG:       Update jenkins-x.yml
+
+
+Associating user *******-0 in users.jenkins.io with email Salaboy@gmail.com to git GitProvider user with login *******-1 as emails match
+Adding label jenkins.io/git-github-userid=*******-1 to user *******-0 in users.jenkins.io
+Associating user github in users.jenkins.io with email noreply@github.com to git GitProvider user with login github-0 as emails match
+Adding label jenkins.io/git-github-userid=github-0 to user github in users.jenkins.io
+Finding issues in commit messages using git format
+DEBUG: Generated release notes:
+
+## Changes
+
+* Update jenkins-x.yml (*******)
+
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git tag --list 0.0.13
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git tag --list v0.0.13
+WARNING: No release found for zeebe-io/zeebe-zeeqs-helm and tag v0.0.13 so creating a new release
+Updated the release information at https://github.com/zeebe-io/zeebe-zeeqs-helm/releases/tag/v0.0.13
+DEBUG: Not adding dependency matrix /workspace/source/dependency-matrix/matrix.yaml as does not exist
+generated: /workspace/source/zeeqs/templates/release.yaml
+Created Release zeebe-zeeqs-helm-0-0-13 resource in namespace **
+Updating PipelineActivity zeebe-io-zeebe-zeeqs-helm-master-11 with version 0.0.13
+Updated PipelineActivities zeebe-io-zeebe-zeeqs-helm-master-11 with release notes URL: https://github.com/zeebe-io/zeebe-zeeqs-helm/releases/tag/v0.0.13
+
+Showing logs for build [32mzeebe-io-zeebe-zeeqs-helm-maste-h5ngf-11[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-step6[0m
+Using https://github.com/zeebe-io/zeebe-zeeqs-helm as source for change discovered from git repo in /workspace/source
+Updated Pull Request: https://github.com/zeebe-io/zeebe-full-helm/pull/84
+Added label updatebot to Pull Request https://github.com/zeebe-io/zeebe-full-helm/pull/84
