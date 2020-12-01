@@ -9,8 +9,8 @@ service:
   port: 9000
 
 image:
-  repository: camunda/zeeqs
-  tag: latest
+  repository: gcr.io/camunda-researchanddevelopment/zeebe-zeeqs-helm
+  tag: 0.0.16
 
 resources: 
   requests:
