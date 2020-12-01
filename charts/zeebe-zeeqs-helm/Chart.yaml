@@ -5,7 +5,7 @@ name: zeebe-zeeqs-helm
 version: 0.1.1-SNAPSHOT
 icon: https://zeebe.io/img/zeebe-logo.png
 dependencies:
-name: zeebe-zeeqs-helm
+- name: hazelcast
   repository: https://kubernetes-charts.storage.googleapis.com/
   version: 3.3.2
   condition: "hazelcast.enabled"
