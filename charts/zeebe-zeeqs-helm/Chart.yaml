@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "1.0"
 description: ZeeQS Helm Chart for Kubernetes
 name: zeebe-zeeqs-helm
-version: 0.1.1-SNAPSHOT
+version: 0.0.18
 icon: https://zeebe.io/img/zeebe-logo.png
 dependencies:
 - name: hazelcast
