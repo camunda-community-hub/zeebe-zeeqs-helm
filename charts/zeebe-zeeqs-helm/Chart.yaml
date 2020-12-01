@@ -9,6 +9,3 @@ dependencies:
   repository: https://hazelcast-charts.s3.amazonaws.com/
   version: 3.5.0
   condition: "hazelcast.enabled"
-- name: jenkins-x-crds
-  repository: "https://storage.googleapis.com/jenkinsxio/charts"
-  version: 3.0.5  
