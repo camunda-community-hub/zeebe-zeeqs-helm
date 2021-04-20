@@ -10,7 +10,7 @@ service:
 
 image:
   repository: camunda/zeeqs
-  tag: latest
+  tag: 1.0.0
 
 resources: 
   requests:
