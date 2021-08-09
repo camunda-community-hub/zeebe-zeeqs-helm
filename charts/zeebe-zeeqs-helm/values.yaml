@@ -9,7 +9,7 @@ service:
   port: 9000
 
 image:
-  repository: camunda/zeeqs
+  repository: ghcr.io/camunda-community-hub
   tag: 2.0.0
 
 resources: 
