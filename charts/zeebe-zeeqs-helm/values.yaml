@@ -12,7 +12,7 @@ image:
   repository: ghcr.io/camunda-community-hub/zeeqs
   tag: 2.0.0
 
-resources: 
+resources:
   requests:
     cpu: 500m
     memory: 1Gi
